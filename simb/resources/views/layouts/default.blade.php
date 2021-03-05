@@ -40,10 +40,31 @@
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                </li>
              </ul>
+             @guest
              <div class="form-inline my-2 my-lg-0">
                 <a class="btn btn-primary" href="/register">Sing up</a>
                 <a class="btn btn-outline-primary" href="/login">Login</a>
              </div>
+             @endguest
+             @auth
+             <div class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }}
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                           @csrf
+                      </form>
+                   </div>
+               </div>
+             @endauth
            </div>
          </div>
        </nav>
