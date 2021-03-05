@@ -47,23 +47,18 @@
              </div>
              @endguest
              @auth
-             <div class="nav-item dropdown">
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->name }}
-                  </a>
-
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ route('logout') }}"
-                         onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                          {{ __('Logout') }}
-                      </a>
-
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                           @csrf
-                      </form>
+                   <div class="nav-item dropdown">
+                       <a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                           {{ Auth::user()->name }}
+                       </a>
+                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                           <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
+                       </ul>
                    </div>
-               </div>
+                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                       @csrf
+                   </form>
              @endauth
            </div>
          </div>
@@ -73,7 +68,7 @@
        </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
