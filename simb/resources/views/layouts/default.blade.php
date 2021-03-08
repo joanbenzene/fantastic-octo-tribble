@@ -38,7 +38,7 @@
                                   document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
                        </ul>
                    </div>
-                   <input type="text" value="http://localhost:8000/join?key={{ Auth::user()->id }}" id="myInput"
+                   <input type="text" value="http://localhost:8000/register?key={{ Auth::user()- }}" id="myInput"
                           style="opacity: 0; position: absolute; left: -1000px; top: -1000px">
                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                        @csrf
