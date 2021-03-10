@@ -21,4 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking');
+Route::get('/booking', [App\Http\Controllers\BookingController::class, 'index'])->name('booking')->middleware('auth');
+Route::post('/upload', [App\Http\Controllers\BookingController::class, 'store'])->name('store')->middleware('auth');
+Route::post('/payment', [App\Http\Controllers\BookingController::class, 'payement'])->name('pay')->middleware('auth');
+Route::get('/link', function () {
+    Artisan::call('storage:link');
+});
