@@ -40,37 +40,43 @@ class BookingController extends Controller
     public function pay(Request $request){
         $url    = 'https://api.limopay.net/payment';
         $fields = array(
-            'publicKey'        => urlencode('5315067b5797ec3db5358630225f0b46'),
-            'secretKey'        => urlencode('7ef8f0bc39bdfb93a7500c34f8d60d95854b98c81632309bf35e7512cc21fb53cc75efd0e4e572c2a2527dd3a3e4f5a915db8989ebea1c67e3906c3641c5a059'),
-            'receiverName'     => urlencode('tareqmerchant'),
-
-            'senderName'       => urlencode('usert'),
-            "otp"              => urlencode('617268'),
-
-            'billingDate'      => urlencode('2020-11-14 15:37:25.729963'),
-            'billingNote'      => urlencode('Lorem Ipsom...'),
-            'shopID'           => urlencode('749271417079'),
-            'curtItem'         => array(
-                array(
-                    'itemID'        => '987654321',
-                    'title'         => 'productname',
-                    'quantity'      => '1',
-                    'BasePrice'     => '1',
-                    'totalPrice'    => '1'
-                ),array(
-                    'itemID'        => '987654321',
-                    'title'         => 'productname',
-                    'quantity'      => '1',
-                    'BasePrice'     => '1',
-                    'totalPrice'    => '1'
-                )
-            ),
-            'invoiceAmount'    => urlencode('2'),
-            'deliveryCharge'   => urlencode('0'),
-            'vatTax'           => urlencode('0'),
-            'extraCharge'      => urlencode('0'),
-            'totalAmount'      => urlencode('2'),
-        );
+            "publicKey":"f65ds4fg891f51d894g5dfg",
+            "secretKey":"df7g46df5gdf1g56df1g56df1g6df6a761d76e26bdd5c69d1c627177cc70c9fdcd6f62687cc",
+            "senderName":"personal",
+            "otp":"123456",
+            "receiverName":"business",
+            "billingDate":"2020-11-14 15:37:25.729963",
+            "billingNote":"Lorem Ipsom...",
+            "shopID":"105679648144",
+            "curtItem":[
+               {
+                  "itemID":"987654321",
+                  "title":"Styledonia",
+                  "quantity":"2",
+                  "BasePrice":"15",
+                  "totalPrice":"30"
+               },
+               {
+                  "itemID":"5489423164",
+                  "title":"Crunch",
+                  "quantity":"6",
+                  "BasePrice":"5",
+                  "totalPrice":"30"
+               },
+               {
+                 "itemID":"987654321",
+                 "title":"Mineral Water",
+                 "quantity":"1",
+                 "BasePrice":"15",
+                 "totalPrice":"15"
+                }
+            ],
+            "invoiceAmount":"85",
+            "deliveryCharge":"10",
+            "vatTax":"5",
+            "extraCharge":"0",
+            "totalAmount":"100"
+}
         try {
             $fields_string = json_encode($fields, JSON_THROW_ON_ERROR);
         } catch (\JsonException $e) {
