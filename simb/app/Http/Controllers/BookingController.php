@@ -39,7 +39,7 @@ class BookingController extends Controller
 
     public function pay(Request $request){
         $url    = 'https://api.limopay.net/payment';
-        $fields = array(
+        $fields = {
             "publicKey":"f65ds4fg891f51d894g5dfg",
             "secretKey":"df7g46df5gdf1g56df1g56df1g6df6a761d76e26bdd5c69d1c627177cc70c9fdcd6f62687cc",
             "senderName":"personal",
@@ -76,7 +76,8 @@ class BookingController extends Controller
             "vatTax":"5",
             "extraCharge":"0",
             "totalAmount":"100"
-}
+        }
+
         try {
             $fields_string = json_encode($fields, JSON_THROW_ON_ERROR);
         } catch (\JsonException $e) {
