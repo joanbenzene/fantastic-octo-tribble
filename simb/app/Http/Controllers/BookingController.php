@@ -40,43 +40,7 @@ class BookingController extends Controller
     public function pay(Request $request){
         $url    = 'https://api.limopay.net/payment';
         $fields = array(
-            "publicKey":"f65ds4fg891f51d894g5dfg",
-            "secretKey":"df7g46df5gdf1g56df1g56df1g6df6a761d76e26bdd5c69d1c627177cc70c9fdcd6f62687cc",
-            "senderName":"personal",
-            "otp":"123456",
-            "receiverName":"business",
-            "billingDate":"2020-11-14 15:37:25.729963",
-            "billingNote":"Lorem Ipsom...",
-            "shopID":"105679648144",
-            "curtItem":[
-               {
-                  "itemID":"987654321",
-                  "title":"Styledonia",
-                  "quantity":"2",
-                  "BasePrice":"15",
-                  "totalPrice":"30"
-               },
-               {
-                  "itemID":"5489423164",
-                  "title":"Crunch",
-                  "quantity":"6",
-                  "BasePrice":"5",
-                  "totalPrice":"30"
-               },
-               {
-                 "itemID":"987654321",
-                 "title":"Mineral Water",
-                 "quantity":"1",
-                 "BasePrice":"15",
-                 "totalPrice":"15"
-                }
-            ],
-            "invoiceAmount":"85",
-            "deliveryCharge":"10",
-            "vatTax":"5",
-            "extraCharge":"0",
-            "totalAmount":"100"
-}
+            
         try {
             $fields_string = json_encode($fields, JSON_THROW_ON_ERROR);
         } catch (\JsonException $e) {
