@@ -8,6 +8,7 @@
                     <div class="card-header">{{ __('Pay now!') }}</div>
 
                     <div class="card-body">
+                        // This is the form. We submit it to /pay through a POST method as you just said. But we still got an error
                         <form method="POST" action="{{ route('payment') }}" enctype="multipart/form-data">
                             @csrf
 
