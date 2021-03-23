@@ -8,14 +8,28 @@
                     <div class="card-header">{{ __('Pay now!') }}</div>
 
                     <div class="card-body">
-                        // This is the form. We submit it to /pay through a POST method as you just said. But we still got an error
+                        
                         <form method="POST" action="{{ route('payment') }}" enctype="multipart/form-data">
                             @csrf
 
+                            
                             <div class="form-group row">
+                                <label for="place" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+
+                                <div class="col-md-6 custom-preview">
+                                    <input id="place" type="text" class="form-control @error('place') is-invalid @enderror" name="place" value="{{ old('place') }}" required autocomplete="place" autofocus>
+
+                                    @error('place')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror 
+                                </div>
+                            </div>
+                            <div class="form-group row"> 
                                 <label for="amount" class="col-md-4 col-form-label text-md-right">{{ __('Montant') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 custom-preview">
                                     <input id="amount" type="text" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="place" autofocus>
 
                                     @error('amount')
