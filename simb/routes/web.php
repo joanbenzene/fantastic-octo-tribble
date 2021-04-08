@@ -27,6 +27,7 @@ Route::post('/upload', [App\Http\Controllers\BookingController::class, 'store'])
 Route::get('/payment', [App\Http\Controllers\BookingController::class, 'payement'])->name('pay')->middleware('auth');
 Route::post('/pay', [App\Http\Controllers\BookingController::class, 'pay'])->name('payment')->middleware('auth');
 
+
 Route::get('/link', function () {
     Artisan::call('storage:link');
 });
